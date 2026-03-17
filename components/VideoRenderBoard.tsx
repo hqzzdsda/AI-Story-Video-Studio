@@ -38,7 +38,7 @@ export default function VideoRenderBoard({ userId }: { userId: string }) {
   const [activeProjectStatus, setActiveProjectStatus] = useState<string>('draft');
 
   const resolveUrls = async (paths: (string | null | undefined)[]) => {
-    const needsSign = paths.filter((p): p is string => Boolean(p) && !p.startsWith('http'));
+    const needsSign = paths.filter((p): p is string => typeof p === 'string' && !p.startsWith('http'));
     if (needsSign.length === 0) return;
     const { data } = await supabase.storage.from('user_assets').createSignedUrls(needsSign, 3600);
     if (data) {
