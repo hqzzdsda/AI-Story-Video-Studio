@@ -1,5 +1,9 @@
 # 🎬 AI Story Video Studio
 
+在线体验：
+
+👉 https://ai-story-video-studio.vercel.app
+
 一个可控的 AI 视频生成系统，实现从剧本输入到视频生成的自动化创作流程。
 
 项目目标是解决当前 AI 视频生成中的两个核心问题：
