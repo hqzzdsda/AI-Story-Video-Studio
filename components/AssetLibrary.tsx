@@ -60,7 +60,7 @@ export default function AssetLibrary({ userId }: { userId: string }) {
     if (data) {
       setDisplayUrls(prev => {
         const newMap = { ...prev };
-        data.forEach(item => { if (item.signedUrl) newMap[item.path] = item.signedUrl; });
+        data.forEach(item => { if (item.signedUrl && item.path) newMap[item.path] = item.signedUrl; });
         return newMap;
       });
     }
