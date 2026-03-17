@@ -24,7 +24,9 @@
 
 ## ❌ 优化前（初版系统）
 
-(https://github.com/hqzzdsda/AI-Story-Video-Studio/video/before.mp4)
+<video controls width="600">
+  <source src="video/before.mp4" type="video/mp4">
+</video>
 
 存在的问题：
 
@@ -38,7 +40,9 @@
 
 ## ✅ 优化后（Prompt + Pipeline 优化）
 
-(https://github.com/hqzzdsda/AI-Story-Video-Studio/video/after.mp4)
+<video controls width="600">
+  <source src="video/after.mp4" type="video/mp4">
+</video>
 
 改进效果：
 
