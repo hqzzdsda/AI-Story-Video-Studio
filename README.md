@@ -24,7 +24,11 @@
 
 ## ❌ 优化前（初版系统）
 
-video/before.mp4
+
+
+https://github.com/user-attachments/assets/7e46055c-b5b6-4487-bba7-ba5e792d42ed
+
+
 
 存在的问题：
 
@@ -38,7 +42,11 @@ video/before.mp4
 
 ## ✅ 优化后（Prompt + Pipeline 优化）
 
-video/after.mp4
+
+
+https://github.com/user-attachments/assets/f1f2527a-ca23-4992-809d-586ce4b1d0ad
+
+
 
 改进效果：
 
