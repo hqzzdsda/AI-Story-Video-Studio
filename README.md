@@ -24,7 +24,7 @@
 
 ## ❌ 优化前（初版系统）
 
-
+![before](video/before.mp4)
 
 存在的问题：
 
@@ -38,7 +38,7 @@
 
 ## ✅ 优化后（Prompt + Pipeline 优化）
 
-
+![after](video/after.mp4)
 
 改进效果：
 
