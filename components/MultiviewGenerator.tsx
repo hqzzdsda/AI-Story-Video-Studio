@@ -29,7 +29,7 @@ export default function MultiviewGenerator() {
 
   // 🌟 2. 解析函数：将私有路径转为 1 小时签名链接
   const resolveUrls = async (paths: (string | null | undefined)[]) => {
-    const needsSign = paths.filter((p): p is string => Boolean(p) && !p.startsWith('http') && !p.startsWith('blob:'));
+    const needsSign = paths.filter((p): p is string => typeof p === 'string' && !p.startsWith('http') && !p.startsWith('blob:'));
     if (needsSign.length === 0) return;
     
     const { data } = await supabase.storage.from('user_assets').createSignedUrls(needsSign, 3600);
