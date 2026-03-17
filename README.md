@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 AI Story Video Studio
 
-## Getting Started
+一个可控的 AI 视频生成系统，实现从剧本输入到视频生成的自动化创作流程。
 
-First, run the development server:
+项目目标是解决当前 AI 视频生成中的两个核心问题：
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+• 角色一致性差  
+• 镜头视角不可控  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+本项目通过 Prompt 工程与生成流程设计，在 **单次生成流程** 的情况下显著提高视频生成质量，而不是依赖多次抽卡筛选结果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 🎥 生成效果对比
 
-## Learn More
+本项目对比的是 **同一剧本、同一生成流程、一次生成** 的结果。
 
-To learn more about Next.js, take a look at the following resources:
+区别仅在于：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+• Prompt 结构优化  
+• 生成流程设计优化  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ❌ 优化前（初版系统）
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+存在的问题：
+
+• 人物朝向随机  
+• 分镜与画面不一致  
+• 镜头语言混乱  
+
+生成过程完全依赖模型随机性。
+
+---
+
+## ✅ 优化后（Prompt + Pipeline 优化）
+
+
+
+改进效果：
+
+• 镜头方向更加稳定  
+• 角色一致性明显提高  
+• 分镜衔接更自然  
+
+生成仍然是 **单次流程生成**，没有进行多次抽卡筛选。
+
+---
+
+# 🧠 系统整体流程
+
+AI Story Video Studio 构建了一条完整的视频生成流程：
+
+剧本输入  
+↓  
+剧本解析  
+↓  
+角色生成  
+↓  
+三视图补全  
+↓  
+分镜关键帧生成  
+↓  
+视频生成  
+↓  
+视频合成  
+
+---
+
+# 🧩 核心模块
+
+## 1 剧本解析
+
+使用大模型解析剧本，提取：
+
+• 场景  
+• 角色动作  
+• 环境描述  
+
+并将自然语言剧本转换为适合 AI 生成的结构化 Prompt。
+
+---
+
+## 2 角色一致性控制
+
+为每个角色生成基础形象，并提取关键视觉特征：
+
+• 面部特征  
+• 发型  
+• 服装  
+
+这些特征会在后续生成过程中持续引用，从而提高角色一致性。
+
+---
+
+## 3 三视图生成
+
+根据角色正面图生成：
+
+• 侧面图  
+• 背面图  
+
+三视图为 AI 提供空间参考，从而减少角色转身时的形象崩坏问题。
+
+---
+
+## 4 镜头视角控制
+
+系统引入 **targetView 机制** 来控制镜头方向。
+
+例如：
+
+Front  
+Side  
+Back  
+
+在生成 Prompt 中强制加入视角约束，从而减少 AI 随机生成镜头的问题。
+
+---
+
+## 5 视频生成
+
+系统使用首尾帧生成视频片段。
+
+生成逻辑为：
+
+首帧 → 视频模型 → 尾帧
+
+这种方式能够保证视频动作连续，同时减少画面跳变。
+
+---
+
+## 6 视频合成
+
+所有分镜视频片段生成后，系统会自动进行视频拼接，生成最终完整视频。
+
+---
+
+# 🏗️ 技术架构
+
+前端
+
+Next.js  
+TypeScript  
+
+后端
+
+Supabase Edge Functions  
+
+AI模型
+
+Flux（图像生成）  
+DeepSeek（文本理解）  
+Seedance（视频生成）
+
+---
+
+# 📈 项目工程价值
+
+本项目展示了如何通过工程化方法提升 AI 生成内容的稳定性。
+
+核心思路包括：
+
+• 通过 Prompt 结构优化减少随机性  
+• 通过流程设计提高生成一致性  
+• 通过三视图与镜头控制增强生成可控性  
+
+最终实现 **可预测的视频生成流程**。
+
+---
+
+# 🚀 项目定位
+
+AI Story Video Studio 并不是一个简单的 AI 工具，而是一个 **AI 视频生成 pipeline 的产品原型**。
+
+该项目主要探索：
+
+AI 在视频创作领域中的工业化生产可能性。
