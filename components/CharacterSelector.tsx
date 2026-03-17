@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 
-export default function CharacterSelector({ projectId }: { projectI?: string }) {
+export default function CharacterSelector({ projectId }: { projectId?: string }) {
   const [prompt, setPrompt] = useState('');
   const [candidateUrl, setCandidateUrl] = useState<string | null>(null); // 改为单张图
   const [translatedPrompt, setTranslatedPrompt] = useState<string>('');
