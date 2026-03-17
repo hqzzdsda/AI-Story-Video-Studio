@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # 🎬 AI Story Video Studio
